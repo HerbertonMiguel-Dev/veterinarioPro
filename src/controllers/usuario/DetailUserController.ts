@@ -6,11 +6,11 @@ class DetailUserController{
 
     const usuario_id  = request.usuario_id ;
 
-    console.log(usuario_id) ;
+    
 
     const userDetailService = new ServicoDetalheUsuario();
 
-    const detailUser = await userDetailService.execute();
+    const detailUser = await userDetailService.execute(usuario_id);
 
     return response.json(detailUser);
 
