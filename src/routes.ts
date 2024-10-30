@@ -5,6 +5,8 @@ import { AuthUserController } from './controllers/usuario/AuthUserController'
 import { DetailUserController } from './controllers/usuario/DetailUserController'
 import { UpdateUserController } from './controllers/usuario/UpdateUserController'
 
+import { CreateConsultationController } from './controllers/consulta/CreateConsultationController'
+
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
 const router = Router();
@@ -14,5 +16,8 @@ router.post('/usuarios', new CreateUserController().handle.bind(new CreateUserCo
 router.post('/sessao', new AuthUserController().handle)
 router.get('/me', isAuthenticated, new DetailUserController().handle)
 router.put('/usuarios', isAuthenticated, new UpdateUserController().handle)
+
+// --- ROTA Con ---
+router.post('/consulta', isAuthenticated, new CreateConsultationController().handle )
 
 export { router };
