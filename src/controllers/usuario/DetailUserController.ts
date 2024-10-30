@@ -6,8 +6,6 @@ class DetailUserController{
 
     const usuario_id  = request.usuario_id ;
 
-    
-
     const userDetailService = new ServicoDetalheUsuario();
 
     const detailUser = await userDetailService.execute(usuario_id);
