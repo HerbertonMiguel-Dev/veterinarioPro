@@ -12,6 +12,8 @@ import { CheckSubscriptionController } from './controllers/consulta/CheckSubscri
 import { CountConsultationsController } from './controllers/consulta/CountConsultationsController'
 import { DetailConsultationController } from './controllers/consulta/DetailConsultationController'
 
+import { NewScheduleController } from './controllers/agendamento/NewScheduleController'
+
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
 const router = Router();
@@ -29,5 +31,8 @@ router.put('/consulta', isAuthenticated, new UpdateConsultationController().hand
 router.get('/consulta/check', isAuthenticated, new CheckSubscriptionController().handle)
 router.get('/consulta/count', isAuthenticated, new CountConsultationsController().handle)
 router.get('/consulta/detalhe', isAuthenticated, new DetailConsultationController().handle)
+
+// --- ROTA agendamento / SERVIÇOS ---
+router.post('/agendamento', isAuthenticated, new NewScheduleController().handle)
 
 export { router };
