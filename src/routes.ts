@@ -6,6 +6,7 @@ import { DetailUserController } from './controllers/usuario/DetailUserController
 import { UpdateUserController } from './controllers/usuario/UpdateUserController'
 
 import { CreateConsultationController } from './controllers/consulta/CreateConsultationController'
+import { ListConsultationController } from './controllers/consulta/ListConsultationController'
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
@@ -17,7 +18,8 @@ router.post('/sessao', new AuthUserController().handle)
 router.get('/me', isAuthenticated, new DetailUserController().handle)
 router.put('/usuarios', isAuthenticated, new UpdateUserController().handle)
 
-// --- ROTA Con ---
+// --- ROTA Consultas ---
 router.post('/consulta', isAuthenticated, new CreateConsultationController().handle )
+router.get('/consultas', isAuthenticated, new ListConsultationController().handle)
 
 export { router };
