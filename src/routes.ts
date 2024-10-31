@@ -9,6 +9,8 @@ import { CreateConsultationController } from './controllers/consulta/CreateConsu
 import { ListConsultationController } from './controllers/consulta/ListConsultationController'
 import { UpdateConsultationController } from './controllers/consulta/UpdateConsultationController'
 import { CheckSubscriptionController } from './controllers/consulta/CheckSubscriptionController'
+import { CountConsultationsController } from './controllers/consulta/CountConsultationsController'
+import { DetailConsultationController } from './controllers/consulta/DetailConsultationController'
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
@@ -25,5 +27,7 @@ router.post('/consulta', isAuthenticated, new CreateConsultationController().han
 router.get('/consultas', isAuthenticated, new ListConsultationController().handle)
 router.put('/consulta', isAuthenticated, new UpdateConsultationController().handle)
 router.get('/consulta/check', isAuthenticated, new CheckSubscriptionController().handle)
+router.get('/consulta/count', isAuthenticated, new CountConsultationsController().handle)
+router.get('/consulta/detalhe', isAuthenticated, new DetailConsultationController().handle)
 
 export { router };
