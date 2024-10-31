@@ -13,6 +13,8 @@ import { CountConsultationsController } from './controllers/consulta/CountConsul
 import { DetailConsultationController } from './controllers/consulta/DetailConsultationController'
 
 import { NewScheduleController } from './controllers/agendamento/NewScheduleController'
+import { ListScheduleController } from './controllers/agendamento/ListScheduleController'
+import { FinishScheduleController } from './controllers/agendamento/FinishScheduleController'
 
 import { isAuthenticated } from './middlewares/isAuthenticated'
 
@@ -34,5 +36,7 @@ router.get('/consulta/detalhe', isAuthenticated, new DetailConsultationControlle
 
 // --- ROTA agendamento / SERVIÇOS ---
 router.post('/agendamento', isAuthenticated, new NewScheduleController().handle)
+router.get('/agendamento', isAuthenticated, new ListScheduleController().handle)
+router.delete('/agendamento/delete', isAuthenticated, new FinishScheduleController().handle)
 
 export { router };
